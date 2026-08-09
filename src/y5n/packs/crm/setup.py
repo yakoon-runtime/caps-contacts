@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from y5n.sdk import ports
-from y5n.sdk.store_client import StoreClient
+from y5n.sdk.store import StoreClient
 
 from .services import ContactService, Namespaces
 
