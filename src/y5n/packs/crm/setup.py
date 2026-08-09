@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from y5n.sdk import ports
-from y5n.sdk.store import StoreClient
+from y5n.sdk import store as store_factory
 
 from .services import ContactService, Namespaces
 
@@ -9,7 +9,7 @@ from .services import ContactService, Namespaces
 async def main():
 
     namespaces = Namespaces()
-    store = StoreClient()
+    store = store_factory()
 
     for spec in ContactService.index_specs():
         await store.ensure_indexes(
