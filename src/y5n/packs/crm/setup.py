@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from y5n.sdk import ports
-from y5n.sdk import store as store_factory
+from y5n.sdk import ports, store
 
 from .services import ContactService, Namespaces
 
@@ -9,21 +8,19 @@ from .services import ContactService, Namespaces
 async def main():
 
     namespaces = Namespaces()
-    store = store_factory()
+    db = store()
 
     for spec in ContactService.index_specs():
-        await store.ensure_indexes(
-            namespace=namespaces.contact_namespace(), specs=[spec]
-        )
+        await db.ensure_indexes(namespace=namespaces.contact_namespace(), specs=[spec])
 
     contacts = ContactService(
-        on_get=store.get,
-        on_replace=store.replace,
-        on_get_many=store.get_many,
-        on_scan=store.scan,
-        on_delete=store.delete,
-        on_query_index=store.query_index,
-        on_next_id=store.next_id,
+        on_get=db.get,
+        on_replace=db.replace,
+        on_get_many=db.get_many,
+        on_scan=db.scan,
+        on_delete=db.delete,
+        on_query_index=db.query_index,
+        on_next_id=db.next_id,
     )
 
     ports.publish("crm.contact.service", contacts)
