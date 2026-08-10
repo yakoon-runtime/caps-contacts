@@ -5,5 +5,8 @@ navigable: true
 contextual: false
 host: /boot/python/runtime
 
+stores:
+  - crm
+
 entry:
   setup: pack:y5n.packs.crm.setup:main
