@@ -8,7 +8,7 @@ from .services import ContactService, Namespaces
 async def main():
 
     namespaces = Namespaces()
-    db = store()
+    db = store.get("crm")
 
     for spec in ContactService.index_specs():
         await db.ensure_indexes(namespace=namespaces.contact_namespace(), specs=[spec])
