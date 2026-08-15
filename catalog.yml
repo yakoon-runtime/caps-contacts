@@ -1,6 +1,6 @@
 components:
   y5n-packs-crm:
-    location: y5n-packs-crm
+    location: .
 
 bundles:
   crm:
