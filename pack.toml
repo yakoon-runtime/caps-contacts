@@ -1,4 +1,0 @@
-name = "y5n-packs-crm"
-version = "0.8.0"
-description = "Contact management"
-mount = "/opt/crm"
