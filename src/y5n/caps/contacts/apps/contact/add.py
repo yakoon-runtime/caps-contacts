@@ -5,8 +5,8 @@ async def main():
 
     req = context.request()
     name = req.arg(0)
-    contacts = ports.get("crm.contact.service")
-    ns = ports.get("crm.namespaces")
+    contacts = ports.get("contacts.contact.service")
+    ns = ports.get("contacts.namespaces")
     namespace = await ns.contact_namespace()
 
     try:

@@ -1,7 +1,7 @@
 components:
-  y5n-packs-crm:
+  y5n-caps-contacts:
     location: .
-    release: y5n-packs-crm-v0.8.0
+    release: y5n-caps-contacts-v0.8.0
 bundles:
   crm:
-  - y5n-packs-crm
+  - y5n-caps-contacts

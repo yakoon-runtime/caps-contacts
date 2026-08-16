@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from y5n.packs.crm.models import Contact, ContactData
+from y5n.caps.contacts.models import Contact, ContactData
 from y5n.runtime.api.naming import Key, Namespace
 from y5n.runtime.store.event.models import (
     IndexKey,

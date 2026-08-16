@@ -3,8 +3,8 @@ from y5n.sdk import context, io, ports
 
 async def main():
     req = context.request()
-    contacts = ports.get("crm.contact.service")
-    ns = ports.get("crm.namespaces")
+    contacts = ports.get("contacts.contact.service")
+    ns = ports.get("contacts.namespaces")
     namespace = await ns.contact_namespace()
 
     filters = {}

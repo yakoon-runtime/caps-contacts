@@ -2,8 +2,8 @@ from y5n.sdk import io, ports
 
 
 async def main():
-    contacts = ports.get("crm.contact.service")
-    ns = ports.get("crm.namespaces")
+    contacts = ports.get("contacts.contact.service")
+    ns = ports.get("contacts.namespaces")
     namespace = await ns.contact_namespace()
     all_contacts = await contacts.list_contacts(namespace=namespace)
 

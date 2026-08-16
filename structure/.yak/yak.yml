@@ -1,4 +1,4 @@
-title: CRM
+title: Contacts
 
 resolvable: false
 navigable: true
@@ -6,7 +6,7 @@ contextual: false
 host: /boot/python/runtime
 
 stores:
-  - crm
+  - contacts
 
 entry:
-  setup: pack:y5n.packs.crm.setup:main
+  setup: pack:y5n.caps.contacts.setup:main

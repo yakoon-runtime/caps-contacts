@@ -2,7 +2,7 @@ from y5n.runtime.api.naming import Namespace
 
 
 class Namespaces:
-    domain = "crm"
+    domain = "contacts"
     space = "global"
 
     def contact_namespace(self) -> Namespace:

@@ -4,7 +4,7 @@ navigable: false
 contextual: false
 host: /boot/python/runtime
 entry:
-  run: pack:y5n.packs.crm.apps.contact.find:main
+  run: pack:y5n.caps.contacts.apps.contact.find:main
 invocation:
   params:
   - key: name

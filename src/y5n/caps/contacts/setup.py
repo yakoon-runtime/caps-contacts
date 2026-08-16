@@ -8,7 +8,7 @@ from .services import ContactService, Namespaces
 async def main():
 
     namespaces = Namespaces()
-    db = store.get("crm")
+    db = store.get("contacts")
 
     for spec in ContactService.index_specs():
         await db.ensure_indexes(namespace=namespaces.contact_namespace(), specs=[spec])
@@ -23,5 +23,5 @@ async def main():
         on_next_id=db.next_id,
     )
 
-    ports.publish("crm.contact.service", contacts)
-    ports.publish("crm.namespaces", namespaces)
+    ports.publish("contacts.contact.service", contacts)
+    ports.publish("contacts.namespaces", namespaces)

@@ -23,22 +23,22 @@ class Settings:
 
     @classmethod
     def load(cls, config_dir: Path | None = None) -> Settings:
-        data = resolve_space_config("crm", config_dir)
+        data = resolve_space_config("contacts", config_dir)
         storage_data = data.get("storage", {})
         sequencer_data = data.get("sequencer", {})
         return cls(
             storage=StorageSettings(
                 backend=_backend(
-                    os.getenv("CRM_STORE_BACKEND") or storage_data.get("backend"),
+                    os.getenv("CONTACTS_STORE_BACKEND") or storage_data.get("backend"),
                     "memory",
                 ),
-                dsn=os.getenv("CRM_STORE_DSN") or storage_data.get("dsn") or "",
+                dsn=os.getenv("CONTACTS_STORE_DSN") or storage_data.get("dsn") or "",
             ),
             sequencer=SequenceSettings(
                 backend=_backend(
-                    os.getenv("CRM_SEQUENCER_BACKEND") or sequencer_data.get("backend"),
+                    os.getenv("CONTACTS_SEQUENCER_BACKEND") or sequencer_data.get("backend"),
                     "memory",
                 ),
-                dsn=os.getenv("CRM_SEQUENCER_DSN") or sequencer_data.get("dsn") or "",
+                dsn=os.getenv("CONTACTS_SEQUENCER_DSN") or sequencer_data.get("dsn") or "",
             ),
         )
