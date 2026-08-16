@@ -9,4 +9,4 @@ stores:
   - contacts
 
 entry:
-  setup: pack:y5n.caps.contacts.setup:main
+  setup: cap:y5n.caps.contacts.setup:main
