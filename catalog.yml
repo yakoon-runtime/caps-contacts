@@ -1,5 +1,6 @@
 components:
-  - location: .
+  y5n-caps-contacts:
+    location: .
 bundles:
   crm:
-  - y5n-caps-contacts
+    - y5n-caps-contacts
