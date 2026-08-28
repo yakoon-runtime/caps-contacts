@@ -18,8 +18,12 @@ def _backend(value: str | Any | None, default: Backend) -> Backend:
 
 @dataclass
 class Settings:
-    storage: StorageSettings = field(default_factory=StorageSettings)
-    sequencer: SequenceSettings = field(default_factory=SequenceSettings)
+    storage: StorageSettings = field(
+        default_factory=lambda: StorageSettings(backend="memory", dsn="")
+    )
+    sequencer: SequenceSettings = field(
+        default_factory=lambda: SequenceSettings(backend="memory", dsn="")
+    )
 
     @classmethod
     def load(cls, config_dir: Path | None = None) -> Settings:
@@ -36,9 +40,12 @@ class Settings:
             ),
             sequencer=SequenceSettings(
                 backend=_backend(
-                    os.getenv("CONTACTS_SEQUENCER_BACKEND") or sequencer_data.get("backend"),
+                    os.getenv("CONTACTS_SEQUENCER_BACKEND")
+                    or sequencer_data.get("backend"),
                     "memory",
                 ),
-                dsn=os.getenv("CONTACTS_SEQUENCER_DSN") or sequencer_data.get("dsn") or "",
+                dsn=os.getenv("CONTACTS_SEQUENCER_DSN")
+                or sequencer_data.get("dsn")
+                or "",
             ),
         )
