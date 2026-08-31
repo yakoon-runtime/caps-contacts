@@ -47,10 +47,21 @@ The application runs as a Yakoon capability tree mounted under `/opt/contacts`
 inside a Yakoon environment. Each command is a thin entry point (`.yak/yak.yml`
 under `structure/`) into the `y5n-caps-contacts` package.
 
-Persistence goes through Yakoon's stores: an event store for the documents
-plus a sequencer for generated ids, defined by the app's `contacts` store
-profile. The repository ships PostgreSQL provisioning scripts that create a
-dedicated `yakoon_contacts` database with the required store tables.
+## Store
+
+Persistence goes through Yakoon's stores: an event store for the
+documents plus a sequencer for generated ids. Contacts uses the logical
+store `contacts`.
+
+For persistent deployments, configure it with:
+
+    yak configure contacts
+
+Using an environment reference for the database DSN is recommended:
+
+    env://CONTACTS_DATABASE
+
+See the [Yakoon deployment documentation](https://github.com/yakoon-runtime/runtime/blob/main/docs/concepts/deployment.md) for details.
 
 ## Links
 
